@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="/static/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <nav class="navbar navbar-primary bg-primary">
+        <span class="navbar-brand mb-0 h1" style="color: #FFFFFF;">Todo</span>
+    </nav>
+    <br>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Todo
+                </div>
+                <div class="card-body">
+                    <form action="" method="POST">
+                        <div class="form-group">
+                            <label for="text1">Todo</label>
+                            <input type="text" class="form-control" id="text1" placeholder="Enter Todo" name="todo">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    {% if data %}
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+              <h5 class="card-header">List of Todo</h5>
+              <div class="card-body">
+                    <ul class="list-group">
+                        {% for k,v in data.items() %}
+                      <li class="list-group-item">{{ v }}</li>
+                        {% endfor %}
+                    </ul>
+              </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{{ msg }}
+
+</body>
+</html>
